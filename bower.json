@@ -31,5 +31,6 @@
     "moment": "~2.5.0",
     "angular-route": "~1.2.13",
     "angular-mocks": "~1.2.13"
-  }
+  },
+  "version": "0.1.0"
 }
