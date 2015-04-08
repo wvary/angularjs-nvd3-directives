@@ -604,6 +604,7 @@
                     tooltips: '@',
                     tooltipcontent: '&',
                     color: '&',
+                    barcolor: '&',
                     showcontrols: '@',
                     nodata: '@',
                     reducexticks: '@',
@@ -721,6 +722,9 @@
 
                                     if(attrs.tooltipcontent){
                                         chart.tooltipContent(scope.tooltipcontent());
+                                    }
+                                    if(attrs.barcolor){
+                                        chart.barColor(scope.barcolor());
                                     }
 
                                     scope.d3Call(data, chart);
