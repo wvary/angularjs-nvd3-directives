@@ -12,6 +12,8 @@
 
 ![Line Charts](http://angularjs-nvd3-directives.github.io/img/line.chart.png "Line Charts")
 
+** Please note that this fork has diverged from the [original source code](https://github.com/angularjs-nvd3-directives/angularjs-nvd3-directives).
+
 ```html
 <nvd3-line-chart
     data="exampleData"
