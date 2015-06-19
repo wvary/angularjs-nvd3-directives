@@ -50,13 +50,17 @@ function processEvents(chart, scope) {
 			scope.$emit('areaClick.toggle.directive', event);
 		});
 
-		chart.stacked.dispatch.on('tooltipShow.directive', function (event) {
-			scope.$emit('tooltipShow.directive', event);
-		});
+    // Breaks due to corresponding events missing from nvd3 1.8.1 in nv.d3.js (line 12103 inside nv.models.stackedArea) 
+    //     dispatch =  d3.dispatch('areaClick', 'areaMouseover', 'areaMouseout','renderEnd', 'elementClick', 'elementMouseover', 'elementMouseout')
+    // Can be uncommented when 'tooltipShow', 'tooltipHide' are added to the list above
+    // 
+    // chart.stacked.dispatch.on('tooltipShow.directive', function (event) {
+    //  scope.$emit('tooltipShow.directive', event);
+    // });
 
-		chart.stacked.dispatch.on('tooltipHide.directive', function (event) {
-			scope.$emit('tooltipHide.directive', event);
-		});
+    // chart.stacked.dispatch.on('tooltipHide.directive', function (event) {
+    //  scope.$emit('tooltipHide.directive', event);
+    // });
 
 	}
 

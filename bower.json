@@ -25,12 +25,16 @@
   "dependencies": {
     "angular": "~1.2.13",
     "d3": "~3.5",
-    "nvd3": "~v1.7"
+    "nvd3": "1.8.1"
   },
   "devDependencies": {
     "moment": "~2.5.0",
     "angular-route": "~1.2.13",
     "angular-mocks": "~1.2.13"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "resolutions": {
+    "d3": "~3.5",
+    "nvd3": "1.8.1"
+  }
 }
