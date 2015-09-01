@@ -1,4 +1,4 @@
-/*! angularjs-nvd3-directives - v0.1.0 - 2015-06-19
+/*! angularjs-nvd3-directives - v0.2.0 - 2015-09-01
  * http://angularjs-nvd3-directives.github.io/angularjs-nvd3-directives
  * Copyright (c) 2015 Christian Maurer; Licensed Apache License, v2.0 */
 ( function () {
@@ -2700,7 +2700,7 @@
                     return d.x;
                   } : scope.x() ).y( attrs.y === undefined ? function ( d ) {
                     return d.y;
-                  } : scope.y() ).xTickFormat( attrs.xtickformat === undefined ? d3.format( ',r' ) : scope.xtickformat() ).yTickFormat( attrs.ytickformat === undefined ? d3.format( ',.2f' ) : scope.ytickformat() ).color( attrs.color === undefined ? nv.utils.getColor( [ '#000' ] ) : scope.color() ).showValue( attrs.showvalue === undefined ? true : attrs.showvalue === 'true' ).alignValue( attrs.alignvalue === undefined ? true : attrs.alignvalue === 'true' ).rightAlignValue( attrs.rightalignvalue === undefined ? false : attrs.rightalignvalue === 'true' ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata );
+                  } : scope.y() ).xTickFormat( attrs.xtickformat === undefined ? d3.format( ',r' ) : scope.xtickformat() ).yTickFormat( attrs.ytickformat === undefined ? d3.format( ',.2f' ) : scope.ytickformat() ).color( attrs.color === undefined ? nv.utils.getColor( [ '#000' ] ) : scope.color() ).showLastValue( attrs.showlastvalue === undefined ? true : attrs.showlastvalue === 'true' ).alignValue( attrs.alignvalue === undefined ? true : attrs.alignvalue === 'true' ).rightAlignValue( attrs.rightalignvalue === undefined ? false : attrs.rightalignvalue === 'true' ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata );
                   if ( attrs.xScale ) {
                     chart.xScale( scope.xScale() );
                   }
@@ -2829,7 +2829,7 @@
                     return d.x;
                   } : scope.x() ).y( attrs.y === undefined ? function ( d ) {
                     return d.y;
-                  } : scope.y() ).xTickFormat( attrs.xtickformat === undefined ? d3.format( ',r' ) : scope.xtickformat() ).yTickFormat( attrs.ytickformat === undefined ? d3.format( ',.2f' ) : scope.ytickformat() ).color( attrs.color === undefined ? nv.utils.getColor( [ '#000' ] ) : scope.color() ).showValue( attrs.showvalue === undefined ? true : attrs.showvalue === 'true' ).alignValue( attrs.alignvalue === undefined ? true : attrs.alignvalue === 'true' ).rightAlignValue( attrs.rightalignvalue === undefined ? false : attrs.rightalignvalue === 'true' ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata );
+                  } : scope.y() ).xTickFormat( attrs.xtickformat === undefined ? d3.format( ',r' ) : scope.xtickformat() ).yTickFormat( attrs.ytickformat === undefined ? d3.format( ',.2f' ) : scope.ytickformat() ).color( attrs.color === undefined ? nv.utils.getColor( [ '#000' ] ) : scope.color() ).showLastValue( attrs.showlastvalue === undefined ? true : attrs.showlastvalue === 'true' ).alignValue( attrs.alignvalue === undefined ? true : attrs.alignvalue === 'true' ).rightAlignValue( attrs.rightalignvalue === undefined ? false : attrs.rightalignvalue === 'true' ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata );
                   //calc bandline data
                   scope.bandlineProperties.min = d3.min( data, function ( d ) {
                     return d[ 1 ];
