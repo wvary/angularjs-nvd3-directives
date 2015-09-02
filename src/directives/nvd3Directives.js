@@ -360,7 +360,7 @@
                                         .color(attrs.color === undefined ? d3.scale.category10().range() : scope.color())
                                         .isArea(attrs.isarea === undefined ? function(d) { return d.area; } : (attrs.isarea === 'true'));
                                         //.rescaleY(attrs.rescaley === undefined ? false : (attrs.rescaley === 'true'));
-                                    
+
                                     chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if (attrs.useinteractiveguideline) {
@@ -523,7 +523,7 @@
                                         .clipEdge(attrs.clipedge === undefined ? false : (attrs.clipedge === 'true'))
                                         .color(attrs.color === undefined ? nv.utils.defaultColor()  : scope.color());
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if (attrs.useinteractiveguideline) {
                                         chart.useInteractiveGuideline(attrs.useinteractiveguideline === undefined ? false : (attrs.useinteractiveguideline === 'true'));
@@ -720,8 +720,8 @@
                                         .rotateLabels(attrs.rotatelabels === undefined ? 0 : attrs.rotatelabels)
                                         .color(attrs.color === undefined ? nv.utils.defaultColor() : scope.color())
                                         .stacked(attrs.stacked === undefined ? false : (attrs.stacked === 'true'));
-                                    
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     // Delay is in the D3 transitions class, not in the selection class. We make an explicit check with this if statement
                                     if(chart.delay){
@@ -864,7 +864,7 @@
                                         .staggerLabels(attrs.staggerlabels === undefined ? false : (attrs.staggerlabels === 'true'))
                                         .color(attrs.color === undefined ? nv.utils.defaultColor()  : scope.color());
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.tooltipcontent){
                                         chart.tooltipContent(scope.tooltipcontent());
@@ -1003,7 +1003,7 @@
                                         .interactive(attrs.interactive === undefined ? false : (attrs.interactive === 'true'))
                                         .color(attrs.color === undefined ? nv.utils.defaultColor()  : scope.color());
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if (attrs.useinteractiveguideline) {
                                         chart.useInteractiveGuideline(attrs.useinteractiveguideline === undefined ? false : (attrs.useinteractiveguideline === 'true'));
@@ -1151,7 +1151,7 @@
                                         .showValues(attrs.showvalues === undefined ? false : (attrs.showvalues === 'true'))
                                         .stacked(attrs.stacked === undefined ? false : (attrs.stacked === 'true'));
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.tooltipcontent){
                                         chart.tooltipContent(scope.tooltipcontent());
@@ -1257,7 +1257,7 @@
                                         .donut(attrs.donut === undefined ? false : (attrs.donut === 'true'))
                                         .donutRatio(attrs.donutratio === undefined ? 0.5 : (attrs.donutratio));
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.tooltipcontent){
                                         chart.tooltipContent(scope.tooltipcontent());
@@ -1415,7 +1415,7 @@
                                         .color(attrs.color === undefined ? nv.utils.defaultColor()  : scope.color())
                                         .duration(attrs.transitionduration === undefined ? 250 : (+attrs.transitionduration));
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.shape){
                                         chart.scatter.pointShape(attrs.shape === undefined ? function(d) { return d.shape || 'circle'; } : scope.shape());
@@ -1609,7 +1609,7 @@
                                         .color(attrs.color === undefined ? nv.utils.defaultColor()  : scope.color())
                                         .duration(attrs.transitionduration === undefined ? 250 : (+attrs.transitionduration));
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.shape){
                                         chart.scatter.pointShape(attrs.shape === undefined ? function(d) { return d.shape || 'circle'; } : scope.shape());
@@ -1772,7 +1772,7 @@
                                         .interpolate(attrs.interpolate === undefined ? 'linear' : attrs.interpolate)
                                         .color(attrs.color === undefined ? nv.utils.defaultColor()  : scope.color());
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.forcex){
                                         chart.lines.forceX(scope.$eval(attrs.forcex));
@@ -2002,7 +2002,7 @@
                                         .clipVoronoi(attrs.clipvoronoi === undefined ? false : (attrs.clipvoronoi === 'true'))
                                         .interpolate(attrs.interpolate === undefined ? 'linear' : attrs.interpolate);
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.defined){
                                         chart.defined(scope.defined());
@@ -2084,7 +2084,7 @@
                                         .tickFormat(attrs.tickformat === undefined ? null : scope.tickformat())
                                         .noData(attrs.nodata === undefined ? 'No Data Available.' : scope.nodata);
 
-                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));                                        
+                                    chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.tooltipcontent){
                                         chart.tooltipContent(scope.tooltipcontent());
@@ -2164,7 +2164,7 @@
                                         .xTickFormat(attrs.xtickformat === undefined ? d3.format(',r') : scope.xtickformat())
                                         .yTickFormat(attrs.ytickformat === undefined ? d3.format(',.2f') : scope.ytickformat())
                                         .color(attrs.color === undefined ? nv.utils.getColor(['#000']) : scope.color())
-                                        .showValue(attrs.showvalue === undefined ? true : (attrs.showvalue === 'true'))
+                                        .showLastValue(attrs.showlastvalue === undefined ? true : (attrs.showlastvalue === 'true'))
                                         .alignValue(attrs.alignvalue === undefined ? true : (attrs.alignvalue === 'true'))
                                         .rightAlignValue(attrs.rightalignvalue === undefined ? false : (attrs.rightalignvalue === 'true'))
                                         .noData(attrs.nodata === undefined ? 'No Data Available.' : scope.nodata);
@@ -2325,7 +2325,7 @@
                                         .xTickFormat(attrs.xtickformat === undefined ? d3.format(',r') : scope.xtickformat())
                                         .yTickFormat(attrs.ytickformat === undefined ? d3.format(',.2f') : scope.ytickformat())
                                         .color(attrs.color === undefined ? nv.utils.getColor(['#000']) : scope.color())
-                                        .showValue(attrs.showvalue === undefined ? true : (attrs.showvalue === 'true'))
+                                        .showLastValue(attrs.showlastvalue === undefined ? true : (attrs.showlastvalue === 'true'))
                                         .alignValue(attrs.alignvalue === undefined ? true : (attrs.alignvalue === 'true'))
                                         .rightAlignValue(attrs.rightalignvalue === undefined ? false : (attrs.rightalignvalue === 'true'))
                                         .noData(attrs.nodata === undefined ? 'No Data Available.' : scope.nodata);
