@@ -1,6 +1,6 @@
-/*! angularjs-nvd3-directives - v0.2.0 - 2015-09-01
+/*! angularjs-nvd3-directives - v0.2.0 - 2016-04-15
  * http://angularjs-nvd3-directives.github.io/angularjs-nvd3-directives
- * Copyright (c) 2015 Christian Maurer; Licensed Apache License, v2.0 */
+ * Copyright (c) 2016 Christian Maurer; Licensed Apache License, v2.0 */
 ( function () {
   'use strict';
 
@@ -938,7 +938,7 @@
                     chart.xScale( scope.xscale() );
                   }
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
                   nv.utils.windowResize( chart.update );
@@ -1078,7 +1078,7 @@
                     chart.useInteractiveGuideline( attrs.useinteractiveguideline === undefined ? false : attrs.useinteractiveguideline === 'true' );
                   }
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
                   nv.utils.windowResize( chart.update );
@@ -1238,7 +1238,7 @@
                     chart.interpolate( attrs.interpolate );
                   }
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   if ( attrs.xscale ) {
                     chart.xScale( scope.xscale() );
@@ -1393,7 +1393,7 @@
                     chart.delay( attrs.delay === undefined ? 1200 : attrs.delay );
                   }
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   if ( attrs.barcolor ) {
                     chart.barColor( scope.barcolor() );
@@ -1519,7 +1519,7 @@
                   } : scope.y() ).forceY( attrs.forcey === undefined ? [ 0 ] : scope.$eval( attrs.forcey ) ).showValues( attrs.showvalues === undefined ? false : attrs.showvalues === 'true' ).showXAxis( attrs.showxaxis === undefined ? false : attrs.showxaxis === 'true' ).showYAxis( attrs.showyaxis === undefined ? false : attrs.showyaxis === 'true' ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata ).staggerLabels( attrs.staggerlabels === undefined ? false : attrs.staggerlabels === 'true' ).color( attrs.color === undefined ? nv.utils.defaultColor() : scope.color() );
                   chart.tooltip.enabled( attrs.tooltips === undefined ? false : attrs.tooltips === 'true' );
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   if ( attrs.valueformat ) {
                     chart.valueFormat( scope.valueformat() );
@@ -1651,7 +1651,7 @@
                     chart.useInteractiveGuideline( attrs.useinteractiveguideline === undefined ? false : attrs.useinteractiveguideline === 'true' );
                   }
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   if ( attrs.valueformat ) {
                     chart.valueFormat( scope.valueformat() );
@@ -1777,7 +1777,7 @@
                   } : scope.y() ).showXAxis( attrs.showxaxis === undefined ? false : attrs.showxaxis === 'true' ).showYAxis( attrs.showyaxis === undefined ? false : attrs.showyaxis === 'true' ).forceY( attrs.forcey === undefined ? [ 0 ] : scope.$eval( attrs.forcey ) ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata ).color( attrs.color === undefined ? nv.utils.defaultColor() : scope.color() ).showLegend( attrs.showlegend === undefined ? false : attrs.showlegend === 'true' ).showControls( attrs.showcontrols === undefined ? false : attrs.showcontrols === 'true' ).showValues( attrs.showvalues === undefined ? false : attrs.showvalues === 'true' ).stacked( attrs.stacked === undefined ? false : attrs.stacked === 'true' );
                   chart.tooltip.enabled( attrs.tooltips === undefined ? false : attrs.tooltips === 'true' );
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   if ( attrs.valueformat ) {
                     chart.valueFormat( scope.valueformat() );
@@ -1868,7 +1868,7 @@
                   } : scope.y() ).width( scope.width ).height( scope.height ).margin( scope.margin ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata ).showLabels( attrs.showlabels === undefined ? false : attrs.showlabels === 'true' ).labelThreshold( attrs.labelthreshold === undefined ? 0.02 : attrs.labelthreshold ).labelType( attrs.labeltype === undefined ? 'key' : attrs.labeltype ).labelsOutside( attrs.labelsoutside === undefined ? true : attrs.labelsoutside === 'true' ).valueFormat( attrs.valueformat === undefined ? d3.format( ',.0f' ) : attrs.valueformat ).showLegend( attrs.showlegend === undefined ? false : attrs.showlegend === 'true' ).color( attrs.color === undefined ? nv.utils.defaultColor() : scope.color() ).donut( attrs.donut === undefined ? false : attrs.donut === 'true' ).donutRatio( attrs.donutratio === undefined ? 0.5 : attrs.donutratio );
                   chart.tooltip.enabled( attrs.tooltips === undefined ? false : attrs.tooltips === 'true' );
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
                   nv.utils.windowResize( chart.update );
@@ -2349,7 +2349,7 @@
                     chart.bars.forceY( scope.$eval( attrs.forcey ) );
                   }
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   if ( attrs.lineinteractive && attrs.lineinteractive === 'false' ) {
                     chart.lines.interactive( false );
@@ -2560,7 +2560,7 @@
                     chart.defined( scope.defined() );
                   }
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
                   nv.utils.windowResize( chart.update );
@@ -2628,7 +2628,7 @@
                   var chart = nv.models.bulletChart().width( scope.width ).height( scope.height ).margin( scope.margin ).orient( attrs.orient === undefined ? 'left' : attrs.orient ).tickFormat( attrs.tickformat === undefined ? null : scope.tickformat() ).noData( attrs.nodata === undefined ? 'No Data Available.' : scope.nodata );
                   chart.tooltip.enabled( attrs.tooltips === undefined ? false : attrs.tooltips === 'true' );
                   if ( attrs.tooltipcontent ) {
-                    chart.tooltipContent( scope.tooltipcontent() );
+                    chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
                   nv.utils.windowResize( chart.update );

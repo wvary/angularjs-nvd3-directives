@@ -211,7 +211,7 @@
                                     }
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     scope.d3Call(data, chart);
@@ -368,7 +368,7 @@
                                     }
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     scope.d3Call(data, chart);
@@ -550,7 +550,7 @@
                                     }
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     if(attrs.xscale){
@@ -728,7 +728,7 @@
                                         chart.delay(attrs.delay === undefined ? 1200 : attrs.delay);
                                     }
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
                                     if(attrs.barcolor){
                                         chart.barColor(scope.barcolor());
@@ -867,7 +867,7 @@
                                     chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
                                     if(attrs.valueformat){
                                         chart.valueFormat(scope.valueformat());
@@ -1010,7 +1010,7 @@
                                     }
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     if(attrs.valueformat){
@@ -1154,7 +1154,7 @@
                                     chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     if(attrs.valueformat){
@@ -1260,7 +1260,7 @@
                                     chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     scope.d3Call(data, chart);
@@ -1785,7 +1785,7 @@
                                     }
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     if ( attrs.lineinteractive && attrs.lineinteractive === 'false') {
@@ -2009,7 +2009,7 @@
                                     }
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     scope.d3Call(data, chart);
@@ -2087,7 +2087,7 @@
                                     chart.tooltip.enabled(attrs.tooltips === undefined ? false : (attrs.tooltips  === 'true'));
 
                                     if(attrs.tooltipcontent){
-                                        chart.tooltipContent(scope.tooltipcontent());
+                                        chart.tooltip.contentGenerator(scope.tooltipcontent());
                                     }
 
                                     scope.d3Call(data, chart);
