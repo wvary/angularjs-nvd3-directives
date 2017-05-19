@@ -61,9 +61,17 @@
             var d3Select = getD3Selector(attrs, element);
             d3.select(d3Select + ' svg')
                 .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
-            nv.utils.windowResize(chart);
+            scope.windowResizeResult = nv.utils.windowResize(chart.update);
             scope.chart.update();
         }
+    }
+
+    function removeWindowResizeEvent(scope) {
+        scope.$on('$destroy', function () {
+            if (scope.windowResizeResult && typeof scope.windowResizeResult.clear === 'function') {
+                scope.windowResizeResult.clear();
+            }
+        });
     }
 
     angular.module('nvd3ChartDirectives', [])
@@ -164,6 +172,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -215,7 +224,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -323,6 +332,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -372,7 +382,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -488,6 +498,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -582,7 +593,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -687,6 +698,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -735,7 +747,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -834,6 +846,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -874,7 +887,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -976,6 +989,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1018,7 +1032,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -1119,6 +1133,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1162,7 +1177,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -1223,6 +1238,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1264,7 +1280,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -1378,6 +1394,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1458,7 +1475,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -1573,6 +1590,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1616,7 +1634,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -1745,6 +1763,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1797,7 +1816,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -1946,6 +1965,7 @@
                      $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -2013,7 +2033,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -2057,6 +2077,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -2091,7 +2112,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -2139,6 +2160,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -2178,7 +2200,7 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
@@ -2298,6 +2320,7 @@
                                 .call(chart);
                         }
                     };
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -2363,7 +2386,7 @@
 
                                     scope.d3Call(data, chart);
 
-                                    nv.utils.windowResize(chart.update);
+                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
 
                                     scope.chart = chart;
                                     return chart;

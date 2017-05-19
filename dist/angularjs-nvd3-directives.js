@@ -1,6 +1,6 @@
-/*! angularjs-nvd3-directives - v0.2.0 - 2016-04-15
+/*! angularjs-nvd3-directives - v0.2.0 - 2017-05-19
  * http://angularjs-nvd3-directives.github.io/angularjs-nvd3-directives
- * Copyright (c) 2016 Christian Maurer; Licensed Apache License, v2.0 */
+ * Copyright (c) 2017 Christian Maurer; Licensed Apache License, v2.0 */
 ( function () {
   'use strict';
 
@@ -807,9 +807,17 @@
       chart.width( scope.width ).height( scope.height );
       var d3Select = getD3Selector( attrs, element );
       d3.select( d3Select + ' svg' ).attr( 'viewBox', '0 0 ' + scope.width + ' ' + scope.height );
-      nv.utils.windowResize( chart );
+      scope.windowResizeResult = nv.utils.windowResize( chart.update );
       scope.chart.update();
     }
+  }
+
+  function removeWindowResizeEvent( scope ) {
+    scope.$on( '$destroy', function () {
+      if ( scope.windowResizeResult && typeof scope.windowResizeResult.clear === 'function' ) {
+        scope.windowResizeResult.clear();
+      }
+    } );
   }
   angular.module( 'nvd3ChartDirectives', [] ).directive( 'nvd3LineChart', [
     '$filter',
@@ -903,6 +911,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -941,7 +950,7 @@
                     chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -1045,6 +1054,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1081,7 +1091,7 @@
                     chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -1193,6 +1203,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1264,7 +1275,7 @@
                     chart.sizeDomain( scope.sizedomain() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -1364,6 +1375,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1399,7 +1411,7 @@
                     chart.barColor( scope.barcolor() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -1494,6 +1506,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1525,7 +1538,7 @@
                     chart.valueFormat( scope.valueformat() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -1623,6 +1636,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1657,7 +1671,7 @@
                     chart.valueFormat( scope.valueformat() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -1752,6 +1766,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1783,7 +1798,7 @@
                     chart.valueFormat( scope.valueformat() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -1843,6 +1858,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1871,7 +1887,7 @@
                     chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -1982,6 +1998,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2048,7 +2065,7 @@
                     chart.zScale( scope.zscale() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -2161,6 +2178,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2196,7 +2214,7 @@
                     } : scope.shape() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -2316,6 +2334,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2358,7 +2377,7 @@
                     chart.bars.interactive( false );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -2499,6 +2518,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2563,7 +2583,7 @@
                     chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -2607,6 +2627,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2631,7 +2652,7 @@
                     chart.tooltip.contentGenerator( scope.tooltipcontent() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -2678,6 +2699,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2708,7 +2730,7 @@
                     chart.yScale( scope.yScale() );
                   }
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
@@ -2805,6 +2827,7 @@
                 selectedChart.transition().duration( $attrs.transitionduration === undefined ? 250 : +$attrs.transitionduration ).call( chart );
               }
             };
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2861,7 +2884,7 @@
                   configureYaxis( chart, scope, attrs );
                   processEvents( chart, scope );
                   scope.d3Call( data, chart );
-                  nv.utils.windowResize( chart.update );
+                  scope.windowResizeResult = nv.utils.windowResize( chart.update );
                   scope.chart = chart;
                   return chart;
                 },
