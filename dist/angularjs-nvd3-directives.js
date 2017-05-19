@@ -1,4 +1,4 @@
-/*! angularjs-nvd3-directives - v0.2.0 - 2017-04-11
+/*! angularjs-nvd3-directives - v0.2.0 - 2017-05-19
  * http://angularjs-nvd3-directives.github.io/angularjs-nvd3-directives
  * Copyright (c) 2017 Christian Maurer; Licensed Apache License, v2.0 */
 ( function () {
@@ -811,6 +811,14 @@
       scope.chart.update();
     }
   }
+
+  function removeWindowResizeEvent( scope ) {
+    scope.$on( '$destroy', function () {
+      if ( scope.windowResizeResult && typeof scope.windowResizeResult.clear === 'function' ) {
+        scope.windowResizeResult.clear();
+      }
+    } );
+  }
   angular.module( 'nvd3ChartDirectives', [] ).directive( 'nvd3LineChart', [
     '$filter',
     function ( $filter ) {
@@ -903,11 +911,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1050,11 +1054,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1203,11 +1203,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1379,11 +1375,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1514,11 +1506,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1648,11 +1636,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1782,11 +1766,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -1878,11 +1858,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2022,11 +1998,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2206,11 +2178,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2366,11 +2334,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2554,11 +2518,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2667,11 +2627,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2743,11 +2699,7 @@
             $scope.d3Call = function ( data, chart ) {
               checkElementID( $scope, $attrs, $element, chart, data );
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {
@@ -2875,11 +2827,7 @@
                 selectedChart.transition().duration( $attrs.transitionduration === undefined ? 250 : +$attrs.transitionduration ).call( chart );
               }
             };
-            $scope.$on( '$destroy', function () {
-              if ( $scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function' ) {
-                $scope.windowResizeResult.clear();
-              }
-            } );
+            removeWindowResizeEvent( $scope );
           }
         ],
         link: function ( scope, element, attrs ) {

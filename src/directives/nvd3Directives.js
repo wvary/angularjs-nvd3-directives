@@ -66,6 +66,14 @@
         }
     }
 
+    function removeWindowResizeEvent(scope) {
+        scope.$on('$destroy', function () {
+            if (scope.windowResizeResult && typeof scope.windowResizeResult.clear === 'function') {
+                scope.windowResizeResult.clear();
+            }
+        });
+    }
+
     angular.module('nvd3ChartDirectives', [])
         .directive('nvd3LineChart', ['$filter', function($filter){
             return {
@@ -164,11 +172,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -328,11 +332,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -498,11 +498,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -702,11 +698,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -854,11 +846,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1001,11 +989,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1149,11 +1133,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1258,11 +1238,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1418,11 +1394,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1618,11 +1590,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -1795,11 +1763,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -2001,11 +1965,7 @@
                      $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -2117,11 +2077,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -2204,11 +2160,7 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
@@ -2368,11 +2320,7 @@
                                 .call(chart);
                         }
                     };
-                    $scope.$on('$destroy', function() {
-                        if ($scope.windowResizeResult && typeof $scope.windowResizeResult.clear === 'function') {
-                            $scope.windowResizeResult.clear();
-                        }
-                    });
+                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
                     scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
