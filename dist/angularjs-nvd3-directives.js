@@ -1,4 +1,8 @@
+<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
 /*! angularjs-nvd3-directives - v0.2.0 - 2017-05-19
+=======
+/*! angularjs-nvd3-directives - v0.2.0 - 2017-06-12
+>>>>>>> 1. Added code to update chart on when one of the following changes:
  * http://angularjs-nvd3-directives.github.io/angularjs-nvd3-directives
  * Copyright (c) 2017 Christian Maurer; Licensed Apache License, v2.0 */
 ( function () {
@@ -828,6 +832,43 @@
       updateDimensions( scope, attrs, element, scope.chart );
     }, true );
   }
+<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
+=======
+
+  function watchMargins( scope ) {
+    scope.$watch( '[margin, xaxislabeldistance, xaxisrotatelabels, yaxislabeldistance, data]', function ( newVal, oldVal ) {
+      if ( newVal && scope.chart ) {
+        // index 0 is the margin
+        var obj = typeof newVal[ 0 ] === 'string' ? scope.$eval( newVal[ 0 ] ) : newVal[ 0 ];
+        var m = scope.chart.margin();
+        m.left = obj.left;
+        m.right = obj.right;
+        m.top = obj.top;
+        m.bottom = obj.bottom;
+        if ( scope.chart.xAxis ) {
+          // index 1 is the x axis title distance value
+          // must run statement below to apply it
+          if ( newVal[ 1 ] !== oldVal[ 1 ] ) {
+            scope.chart.xAxis.axisLabelDistance( +newVal[ 1 ] );
+          }
+          // index 2 is the x-axis rotate value
+          // must run statement below to apply it
+          if ( newVal[ 2 ] !== oldVal[ 2 ] ) {
+            scope.chart.xAxis.rotateLabels( +newVal[ 2 ] );
+          }
+        }
+        if ( scope.chart.yAxis ) {
+          // index 3 is the y axis title distance value
+          // must run the statement below to apply it
+          if ( newVal[ 3 ] !== oldVal[ 3 ] ) {
+            scope.chart.yAxis.rotateLabels( +newVal[ 3 ] );
+          }
+        }
+        scope.chart.update();
+      }
+    }, true );
+  }
+>>>>>>> 1. Added code to update chart on when one of the following changes:
   angular.module( 'nvd3ChartDirectives', [] ).directive( 'nvd3LineChart', [
     '$filter',
     function ( $filter ) {
@@ -847,7 +888,7 @@
           rightalignyaxis: '@',
           defaultstate: '@',
           nodata: '@',
-          margin: '&',
+          margin: '@',
           tooltipcontent: '&',
           color: '&',
           x: '&',
@@ -925,6 +966,10 @@
         ],
         link: function ( scope, element, attrs ) {
           watchDimensions( scope, attrs, element );
+<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
+=======
+          watchMargins( scope );
+>>>>>>> 1. Added code to update chart on when one of the following changes:
           scope.$watch( 'data', function ( data ) {
             if ( data && angular.isDefined( scope.filtername ) && angular.isDefined( scope.filtervalue ) ) {
               data = $filter( scope.filtername )( data, scope.filtervalue );
@@ -1123,7 +1168,7 @@
           tooltips: '@',
           showcontrols: '@',
           nodata: '@',
-          margin: '&',
+          margin: '@',
           tooltipcontent: '&',
           color: '&',
           x: '&',
@@ -1166,7 +1211,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           showyaxis: '&',
           useinteractiveguideline: '@',
           yaxisorient: '&',
@@ -1311,7 +1356,7 @@
           reducexticks: '@',
           staggerlabels: '@',
           rotatelabels: '@',
-          margin: '&',
+          margin: '@',
           x: '&',
           y: '&',
           forcey: '@',
@@ -1337,7 +1382,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           showyaxis: '&',
           yaxisorient: '&',
           yaxisticks: '&',
@@ -1383,6 +1428,10 @@
         ],
         link: function ( scope, element, attrs ) {
           watchDimensions( scope, attrs, element );
+<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
+=======
+          watchMargins( scope );
+>>>>>>> 1. Added code to update chart on when one of the following changes:
           scope.$watch( 'data', function ( data ) {
             if ( data && angular.isDefined( scope.filtername ) && angular.isDefined( scope.filtervalue ) ) {
               data = $filter( scope.filtername )( data, scope.filtervalue );
@@ -1441,7 +1490,7 @@
           tooltipcontent: '&',
           staggerlabels: '@',
           color: '&',
-          margin: '&',
+          margin: '@',
           nodata: '@',
           x: '&',
           y: '&',
@@ -1467,7 +1516,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           yaxisorient: '&',
           yaxisticks: '&',
           yaxistickvalues: '&yaxistickvalues',
@@ -1512,6 +1561,10 @@
         ],
         link: function ( scope, element, attrs ) {
           watchDimensions( scope, attrs, element );
+<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
+=======
+          watchMargins( scope );
+>>>>>>> 1. Added code to update chart on when one of the following changes:
           scope.$watch( 'data', function ( data ) {
             if ( data && angular.isDefined( scope.filtername ) && angular.isDefined( scope.filtervalue ) ) {
               data = $filter( scope.filtername )( data, scope.filtervalue );
@@ -1595,7 +1648,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           yaxisorient: '&',
           yaxisticks: '&',
           yaxistickvalues: '&yaxistickvalues',
@@ -1696,7 +1749,7 @@
           tooltipcontent: '&',
           color: '&',
           showcontrols: '@',
-          margin: '&',
+          margin: '@',
           nodata: '@',
           x: '&',
           y: '&',
@@ -1723,7 +1776,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           yaxisorient: '&',
           yaxisticks: '&',
           yaxistickvalues: '&yaxistickvalues',
@@ -1768,6 +1821,10 @@
         ],
         link: function ( scope, element, attrs ) {
           watchDimensions( scope, attrs, element );
+<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
+=======
+          watchMargins( scope );
+>>>>>>> 1. Added code to update chart on when one of the following changes:
           scope.$watch( 'data', function ( data ) {
             if ( data && angular.isDefined( scope.filtername ) && angular.isDefined( scope.filtervalue ) ) {
               data = $filter( scope.filtername )( data, scope.filtervalue );
@@ -1951,7 +2008,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           yaxisorient: '&',
           yaxisticks: '&',
           yaxistickvalues: '&yaxistickvalues',
@@ -2129,7 +2186,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           yaxisorient: '&',
           yaxisticks: '&',
           yaxistickvalues: '&yaxistickvalues',
@@ -2262,7 +2319,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           y1axisorient: '&',
           y1axisticks: '&',
           y1axistickvalues: '&y1axistickvalues',
@@ -2429,7 +2486,7 @@
           xaxisrotatelabels: '@',
           xaxisrotateylabel: '@',
           xaxisstaggerlabels: '@',
-          xaxisaxislabeldistance: '@',
+          xaxislabeldistance: '@',
           x2axisorient: '&',
           x2axisticks: '&',
           x2axistickvalues: '&xaxistickvalues',
