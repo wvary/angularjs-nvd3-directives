@@ -61,7 +61,10 @@
             var d3Select = getD3Selector(attrs, element);
             d3.select(d3Select + ' svg')
                 .attr('viewBox', '0 0 ' + scope.width + ' ' + scope.height);
-            scope.windowResizeResult = nv.utils.windowResize(chart.update);
+            if (!scope.windowResizeResult) {
+                // don't wire windowResize if it's already wired
+                scope.windowResizeResult = nv.utils.windowResize( chart.update );
+            }
             scope.chart.update();
         }
     }
@@ -72,6 +75,12 @@
                 scope.windowResizeResult.clear();
             }
         });
+    }
+
+    function watchDimensions(scope, attrs, element) {
+        scope.$watch('[width, height]', function() {
+            updateDimensions(scope, attrs, element, scope.chart);
+        }, true);
     }
 
     angular.module('nvd3ChartDirectives', [])
@@ -175,7 +184,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -335,7 +344,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -501,7 +510,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -701,7 +710,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -849,7 +858,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -992,7 +1001,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -1136,7 +1145,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -1241,7 +1250,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -1397,7 +1406,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -1593,7 +1602,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -1766,7 +1775,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -1968,7 +1977,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -2080,7 +2089,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -2163,7 +2172,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -2323,7 +2332,7 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    scope.$watch('width + height', function() { updateDimensions(scope,attrs,element,scope.chart); });
+                    watchDimensions(scope, attrs, element);
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
