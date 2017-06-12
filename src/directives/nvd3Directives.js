@@ -222,9 +222,8 @@
                     removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    watchDimensions( scope, attrs, element );
+                    watchDimensions(scope, attrs, element);
                     watchMargins( scope );
-
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -385,7 +384,6 @@
                 }],
                 link: function(scope, element, attrs){
                     watchDimensions(scope, attrs, element);
-
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -753,7 +751,6 @@
                 link: function(scope, element, attrs){
                     watchDimensions(scope, attrs, element);
                     watchMargins(scope);
-
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -903,7 +900,6 @@
                 link: function(scope, element, attrs){
                     watchDimensions(scope, attrs, element);
                     watchMargins(scope);
-
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -1047,7 +1043,6 @@
                 }],
                 link: function(scope, element, attrs){
                     watchDimensions(scope, attrs, element);
-
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -1193,7 +1188,6 @@
                 link: function(scope, element, attrs){
                     watchDimensions(scope, attrs, element);
                     watchMargins(scope);
-
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);

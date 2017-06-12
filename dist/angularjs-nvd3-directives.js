@@ -1,8 +1,4 @@
-<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
-/*! angularjs-nvd3-directives - v0.2.0 - 2017-05-19
-=======
 /*! angularjs-nvd3-directives - v0.2.0 - 2017-06-12
->>>>>>> 1. Added code to update chart on when one of the following changes:
  * http://angularjs-nvd3-directives.github.io/angularjs-nvd3-directives
  * Copyright (c) 2017 Christian Maurer; Licensed Apache License, v2.0 */
 ( function () {
@@ -832,8 +828,6 @@
       updateDimensions( scope, attrs, element, scope.chart );
     }, true );
   }
-<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
-=======
 
   function watchMargins( scope ) {
     scope.$watch( '[margin, xaxislabeldistance, xaxisrotatelabels, yaxislabeldistance, data]', function ( newVal, oldVal ) {
@@ -868,7 +862,6 @@
       }
     }, true );
   }
->>>>>>> 1. Added code to update chart on when one of the following changes:
   angular.module( 'nvd3ChartDirectives', [] ).directive( 'nvd3LineChart', [
     '$filter',
     function ( $filter ) {
@@ -966,10 +959,7 @@
         ],
         link: function ( scope, element, attrs ) {
           watchDimensions( scope, attrs, element );
-<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
-=======
           watchMargins( scope );
->>>>>>> 1. Added code to update chart on when one of the following changes:
           scope.$watch( 'data', function ( data ) {
             if ( data && angular.isDefined( scope.filtername ) && angular.isDefined( scope.filtervalue ) ) {
               data = $filter( scope.filtername )( data, scope.filtervalue );
@@ -1428,10 +1418,7 @@
         ],
         link: function ( scope, element, attrs ) {
           watchDimensions( scope, attrs, element );
-<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
-=======
           watchMargins( scope );
->>>>>>> 1. Added code to update chart on when one of the following changes:
           scope.$watch( 'data', function ( data ) {
             if ( data && angular.isDefined( scope.filtername ) && angular.isDefined( scope.filtervalue ) ) {
               data = $filter( scope.filtername )( data, scope.filtervalue );
@@ -1561,10 +1548,7 @@
         ],
         link: function ( scope, element, attrs ) {
           watchDimensions( scope, attrs, element );
-<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
-=======
           watchMargins( scope );
->>>>>>> 1. Added code to update chart on when one of the following changes:
           scope.$watch( 'data', function ( data ) {
             if ( data && angular.isDefined( scope.filtername ) && angular.isDefined( scope.filtervalue ) ) {
               data = $filter( scope.filtername )( data, scope.filtervalue );
@@ -1821,10 +1805,7 @@
         ],
         link: function ( scope, element, attrs ) {
           watchDimensions( scope, attrs, element );
-<<<<<<< 2dc5a8e18f2f3083f1009301b0f1f1e0e8ccf195
-=======
           watchMargins( scope );
->>>>>>> 1. Added code to update chart on when one of the following changes:
           scope.$watch( 'data', function ( data ) {
             if ( data && angular.isDefined( scope.filtername ) && angular.isDefined( scope.filtervalue ) ) {
               data = $filter( scope.filtername )( data, scope.filtervalue );
