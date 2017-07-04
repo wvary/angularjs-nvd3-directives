@@ -2128,10 +2128,15 @@
                     $scope.d3Call = function(data, chart){
                         checkElementID($scope, $attrs, $element, chart, data);
                     };
-                    removeWindowResizeEvent($scope);
                 }],
                 link: function(scope, element, attrs){
-                    watchDimensions(scope, attrs, element);
+                    scope.$watch( '[width, height]', function () {
+                        if ( scope.chart ) {
+                            scope.chart.width(scope.width).height(scope.height);
+                            scope.d3Call( scope.data, scope.chart );
+                        }
+                    }, true);
+
                     scope.$watch('data', function(data){
                         if (data && angular.isDefined(scope.filtername) && angular.isDefined(scope.filtervalue)) {
                             data =  $filter(scope.filtername)(data, scope.filtervalue);
@@ -2163,7 +2168,6 @@
                                     }
 
                                     scope.d3Call(data, chart);
-                                    scope.windowResizeResult = nv.utils.windowResize(chart.update);
                                     scope.chart = chart;
                                     return chart;
                                 },
